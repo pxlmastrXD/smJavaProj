@@ -9,8 +9,16 @@ class Math {
 
 
     // TODO: #1 Add Operations for Math class
-    int add() {}
-    int sub() {}
-    int mul() {}
-    int div() {}
+    int add() {
+        return num1 + num2;
+    }
+    int sub() {
+        return num1 - num2;
+    }
+    int mul() {
+        return num1 * num2;
+    }
+    int div() {
+        return num1 / num2;
+    }
 }
