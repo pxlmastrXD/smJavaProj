@@ -1,8 +1,8 @@
 public class Parser {
-    String[] args = ["default"];
-    public int num1 = 0;
-    public int operation = Operations.ADD;
-    public int num2 = 0
+    private String[] args;
+    public int num1;
+    public Operations operation;
+    public int num2;
 
     public enum Operations {
         ADD,
@@ -12,30 +12,36 @@ public class Parser {
         OTHER
     }
 
-    Parser(String[] args) {
+    public Parser(String[] args) {
         this.args = args;
     }
 
     public void parse() {
-        this.num1 = (int) args[1];
-        var tmpOp = args[2];
-        this.num2 = (int) args[3];
-        switch (tmpOp) {
-            case "+":
-                operation = Operations::ADD;
-                break;
-            case "-":
-                operation = Operations::SUB;
-                break;
-            case "*":
-                operation = Operations::MUL;
-                break;
-            case "*":
-                operation = Operations::DIV;
-                break;
-            default:
-                operation = Operations::OTHER;
-                break;
+        try {
+            num1 = Integer.parseInt(args[1]);
+            var tmpOp = args[2];
+            num2 = Integer.parseInt(args[3]);
+
+            switch (tmpOp) {
+                case "+":
+                    operation = Operations.ADD;
+                    break;
+                case "-":
+                    operation = Operations.SUB;
+                    break;
+                case "*":
+                    operation = Operations.MUL;
+                    break;
+                case "/":
+                    operation = Operations.DIV;
+                    break;
+                default:
+                    operation = Operations.OTHER;
+                    break;
+            }
+        } catch (Exception e) {
+            System.out.println("Invalid input. Usage: java Main num1 operator num2");
+            operation = Operations.OTHER;
         }
     }
 }
