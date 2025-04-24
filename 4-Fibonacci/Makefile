@@ -1,5 +1,5 @@
 build:
-	@javac -d out src/Main.java
+	@javac -d out src/*.java
 	@echo "Build Complete"
 
 run:
@@ -8,3 +8,5 @@ run:
 clean:
 	@rm -rf out/*
 	@echo "Cleaning Complete"
+
+dev: build run
