@@ -3,7 +3,7 @@ build:
 	@echo "Build Complete"
 
 run:
-	@bash -c "time java -cp out Main"
+	@bash -c "time java -cp out Main $(ARGS)"
 
 clean:
 	@rm -rf out/*
